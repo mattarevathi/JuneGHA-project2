@@ -1,0 +1,30 @@
+name: GHA workflow
+on: 
+ push: 
+   branches: 
+       - main
+ pull-request:
+    branches:
+       - main
+jobs: 
+  test:
+   runs-on: "ubuntu-latest"
+   steps:
+    - name: Get code
+      uses: actions/checkout@v7
+    - name: Install node
+      uses: actions/setup-node@v7
+      with: 
+       node-version: '24'
+    - name: install dependencies
+      run: npm ci
+    - name: Run tests
+      run: npm test
+  Build:
+    needs: test
+    runs-on: "ubuntu-latest"
+    steps: 
+      - name: Build application
+        run: npm
+      
+    
