@@ -1,9 +1,9 @@
 name: GHA workflow
 on: 
- push: 
-   branches: 
+  push: 
+    branches: 
        - main
- pull-request:
+  pull-request:
      branches:
        - main
 jobs: 
